@@ -1,6 +1,8 @@
+import os
 import dash
 from dash import Dash, html
 import dash_bootstrap_components as dbc
+
 
 ################################################################################
 # LENZING TABLE
@@ -1351,10 +1353,11 @@ def make_stockmarket_table_white_borders():
 # DASH APP
 ################################################################################
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+#app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 #app = Dash(__name__)
 #server = app.server
 
+app = Dash(__name__)
 
 app.layout = html.Div(
 #page2_table = html.Div(
@@ -1476,11 +1479,16 @@ app.layout = html.Div(
 
 #if __name__ == "__main__":
 #    app.run_server(debug=True)
+#server = app.server
+
+
+
 
 server = app.server
 
-
-
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 8000))
+    app.run_server(host='0.0.0.0', port=port)
 
 
 
