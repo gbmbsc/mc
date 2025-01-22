@@ -1472,9 +1472,10 @@ app.layout = html.Div(
     style={"margin": "0px", "padding": "0px"},
 )
 
+
+
 if __name__ == "__main__":
     app.run_server(debug=True)
-
 
 #server = app.server
 
